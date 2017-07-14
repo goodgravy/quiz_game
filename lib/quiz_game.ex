@@ -28,4 +28,16 @@ defmodule QuizGame do
     QuizGame.Endpoint.config_change(changed, removed)
     :ok
   end
+
+  @doc """
+  Each player needs a unique id, this creates a random one
+  """
+  def generate_player_id do
+    id_length
+    |> :crypto.strong_rand_bytes
+    |> Base.url_encode64()
+    |> binary_part(0, id_length)
+  end
+
+  defp id_length, do: Application.get_env(:quiz_game, :id_length)
 end

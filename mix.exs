@@ -17,9 +17,11 @@ defmodule QuizGame.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {QuizGame, []},
-     applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+    [
+      env: [id_length: 16],
+      mod: {QuizGame, []},
+      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
+       :phoenix_ecto, :postgrex]]
   end
 
   # Specifies which paths to compile per environment.
