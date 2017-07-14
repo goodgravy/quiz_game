@@ -17,6 +17,7 @@ defmodule QuizGame.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    get "/lobby", PageController, :lobby
   end
 
   # Other scopes may use custom stacks.

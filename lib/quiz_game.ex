@@ -14,6 +14,8 @@ defmodule QuizGame do
       supervisor(QuizGame.Endpoint, []),
       # Start your own worker by calling: QuizGame.Worker.start_link(arg1, arg2, arg3)
       # worker(QuizGame.Worker, [arg1, arg2, arg3]),
+      supervisor(QuizGame.Game.Supervisor, []),
+      supervisor(Registry, [:unique, :game_registry]),
     ]
 
     # See http://elixir-lang.org/docs/stable/elixir/Supervisor.html

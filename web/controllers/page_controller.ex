@@ -16,4 +16,11 @@ defmodule QuizGame.PageController do
     |> put_resp_cookie("player", player_id, max_age: 24*60*60)
     |> render("index.html", id: player_id)
   end
+
+  @doc """
+  Available games
+  """
+  def lobby(conn, _params) do
+    render(conn, "lobby.html", id: conn.cookies["player"])
+  end
 end
